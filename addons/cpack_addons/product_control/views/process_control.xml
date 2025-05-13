@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="process_control_form" model="ir.ui.view">
+        <field name="name">process.control.form</field>
+        <field name="model">process.control</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="bleh"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+
+</odoo>

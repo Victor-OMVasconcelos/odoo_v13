@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="solicit_changes_form" model="ir.ui.view">
+        <field name="name">solicit.changes.form</field>
+        <field name="model">solicit.changes</field>
+        <field name="arch" type="xml">
+            <form string="Solicit alteration" create="0" edit="0">
+                <sheet>
+                    <group>
+                        <field name="process"/>
+                        <field name="production_line"/>
+                        <field name="diameter"/>
+                        <field name="date"/>
+                        <field name="solicitant" placeholder="Ex: fernando..."/>
+                        <field name="altered_parameter" placeholder="Ex: Dosing diameter..."/>
+                        <field name="new_value" placeholder="Ex: 9..."/>
+                        <field name="motive" placeholder="Ex: Tooling defect..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="solicit_changes_tree" model="ir.ui.view">
+        <field name="name">solicit.changes.tree</field>
+        <field name="model">solicit.changes</field>
+        <field name="arch" type="xml">
+            <tree string="Solicited" default_order="situation" create="0">
+                <field name="process"/>
+                <field name="date"/>
+                <field name="solicitant"/>
+                <field name="situation" widget="label_selection" 
+                                       options="{'classes': {'awaiting': 'warning','avaluating': 'info', 'dismissed': 'danger', 
+                                       'granted': 'success'}}" class="ms-auto"/>
+                <field name="responsable"/>
+                <field name="motive"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

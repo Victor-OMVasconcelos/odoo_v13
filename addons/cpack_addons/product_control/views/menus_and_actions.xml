@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+    id="control_root_menu"
+    name="Product control"/>
+
+    <record id="action_register" model="ir.actions.act_window">
+        <field name="name">Register</field>
+        <field name="res_model">register.control</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+    id="control_register_menu"
+    name="Register"
+    parent="control_root_menu"
+    action="action_register"/> 
+
+    <record id="action_storage" model="ir.actions.act_window">
+        <field name="name">Stored</field>
+        <field name="res_model">store.control</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+    id="control_storage_menu"
+    name="Storage"
+    parent="control_root_menu"
+    action="action_storage"/>
+
+    <record id="action_process" model="ir.actions.act_window">
+        <field name="name">Process</field>
+        <field name="res_model">process.control</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem
+        id="process_control"
+        name="Process"
+        parent="control_root_menu"
+        action="action_process"/>
+
+    <record id="action_final" model="ir.actions.act_window">
+        <field name="name">Final</field>
+        <field name="res_model">final.control</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem
+        id="final_control"
+        name="Final"
+        parent="control_root_menu"
+        action="action_final"/>
+</odoo>

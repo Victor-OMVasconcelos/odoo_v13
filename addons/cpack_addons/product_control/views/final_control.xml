@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="final_control_form" model="ir.ui.view">
+        <field name="name">final_control_form</field>
+        <field name="model">final.control</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
+                        <h2 style="color: white;">PPL - Provisional cleaning standard - End of item</h2>
+                    </div>
+                    <div style="margin: 0 auto; background-color: rgb(214, 213, 213); padding: 10px; border-radius: 4px; margin-bottom: 10px; width: 95%; text-align: center;">
+                        <h2>At end of shift</h2>
+                    </div>
+                    <group col="12">
+                        <group col="12" colspan="12" style="text-align: center;">
+                            <group colspan="4">
+                                <h3>Turno 1</h3>
+                                <field name="shift1_1"/>
+                                <field name="shift1_2"/>
+                            </group>
+                            <group colspan="4">
+                                <h3>Turno 2</h3>
+                                <field name="shift2_1"/>
+                                <field name="shift2_2"/>
+                            </group>
+                            <group colspan="4">
+                                <h3>Turno 3</h3>
+                                <field name="shift3_1"/>
+                                <field name="shift3_2"/>
+                            </group>
+                        </group>
+                        <div style="
+                        display: flex;
+                        gap: 0;                  
+                        align-items: center;      
+                        background-color: rgb(214, 213, 213);
+                        padding: 10px;
+                        border-radius: 4px;
+                        margin-bottom: 10px;
+                        width: 95%;             
+                        text-align: center;
+                        margin: 0 auto;
+                        "
+                        >
+                            <div style="flex: 1; text-align: center;"> 
+                                <h3>Setup</h3>
+                            </div>
+                             <div style="flex: 1; text-align: center;">
+                                <h3>Color setup</h3>
+                            </div>
+                            <div style="flex: 1; text-align: center;">
+                                <h3>⌀ + weekly</h3>
+                            </div>
+                        </div>
+                        <group col="12" colspan="12" style="text-align: center;">
+                            <group colspan="4">
+                                <field name="setup" />
+                            </group>
+                            <group colspan="4">
+                                <field name="color_setup" />
+                            </group>
+                            <group colspan="4">
+                                <field name="diam_and_weekly_setup" />
+                            </group>
+                        </group>
+                    </group>
+                    <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
+                        <h2 style="color: white;">Line cleaning - End of op</h2>
+                    </div>
+                    <group colspan="12" col="12" style="text-align: center;">
+                        <group colspan="1">
+                            <field name="labels"/>
+                            <field name="forms"/>
+                        </group>
+                        <group colspan="1">
+                            <field name="coil_film_op"/>
+                            <field name="raw_mat_bucket_op"/>
+                        </group>
+                    </group>
+                    <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
+                        <h2 style="color: white;">Line cleaning - End of Item</h2>
+                    </div>
+                    <group colspan="12" col="12" style="text-align:center">
+                        <group colspan="1">
+                            <field name="benches"/>
+                            <field name="empty_boxes"/>
+                        </group>
+                        <group colspan="1">
+                            <field name="coil_film_item"/>
+                            <field name="raw_mat_bucket_item"/>
+                        </group>
+                        <group colspan="1">
+                            <field name="standards"/>
+                            <field name="pallets"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="visualize_arquives_form" model="ir.ui.view">
+        <field name="name">visualize.arquives.form</field>
+        <field name="model">visualize.arquives</field>
+        <field name="arch" type="xml">
+            <form string="Parameters" class="cc" edit="0" create="0">
+                <header>
+                    <button name="solicit_alteration"
+                            type="object"
+                            string="Solicit Alteration"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="process"/>
+                        <field name="production_line"/>
+                        <field name="diameter"/>
+                        <field name="arquive" widget="image"/>
+                        <field name="state" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="visualize_arquives_tree" model="ir.ui.view">
+        <field name="name">visualize.arquives.tree</field>
+        <field name="model">visualize.arquives</field>
+        <field name="arch" type="xml">
+            <tree string="processs" class="custom_class" create="0">
+                <field name="process"/>
+                <field name="production_line"/>
+                <field name="diameter"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="visualize_arquives_search" model="ir.ui.view">
+        <field name="name">visualize.arquives.search</field>
+        <field name="model">visualize.arquives</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="process"/>
+                <field name="production_line"/>
+                <field name="diameter"/>
+                <group string="Group by">
+                    <filter name="by_process" string="process" context="{'group_by': 'process' }"/>
+                    <filter name="by_liny" string="Line" context="{'group_by': 'production_line' }"/>
+                    <filter name="by_diameter" string="diameter" context="{'group_by': 'diameter' }"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
