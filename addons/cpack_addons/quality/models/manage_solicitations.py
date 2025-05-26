@@ -37,3 +37,4 @@ class manage_solicitations(models.Model):
                 'target': 'new',
                 'context': {'active_id': r.id} 
             }
+        

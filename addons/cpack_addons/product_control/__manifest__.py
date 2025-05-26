@@ -12,6 +12,7 @@
     'assets' : {
         'web.assets_backend' :[
             'product_control/static/src/js/form_controller_extend.js',
+            'product_control/static/src/css/style.css',
         ]
     },
 
@@ -19,6 +20,7 @@
         'views/final_control.xml',
         'views/store_control.xml',
         'views/register_control.xml',
+        'views/process_control.xml',
         'views/menus_and_actions.xml',
     ],
     

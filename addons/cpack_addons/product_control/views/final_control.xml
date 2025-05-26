@@ -15,20 +15,20 @@
                     </div>
                     <group col="12">
                         <group col="12" colspan="12" style="text-align: center;">
-                            <group colspan="4">
-                                <h3>Turno 1</h3>
-                                <field name="shift1_1"/>
-                                <field name="shift1_2"/>
+                            <group colspan="4" style="text-align: center;">
+                                <h3>Shift 1</h3>
+                                <field name="shift1_1" widget="boolean_toggle"/>
+                                <field name="shift1_2" widget="boolean_toggle"/>
                             </group>
-                            <group colspan="4">
-                                <h3>Turno 2</h3>
-                                <field name="shift2_1"/>
-                                <field name="shift2_2"/>
+                            <group colspan="4" style="text-align: center;">
+                                <h3>Shift 2</h3>
+                                <field name="shift2_1" widget="boolean_toggle"/>
+                                <field name="shift2_2" widget="boolean_toggle"/>
                             </group>
-                            <group colspan="4">
-                                <h3>Turno 3</h3>
-                                <field name="shift3_1"/>
-                                <field name="shift3_2"/>
+                            <group colspan="4" style="text-align: center;">
+                                <h3>Shift 3</h3>
+                                <field name="shift3_1" widget="boolean_toggle"/>
+                                <field name="shift3_2" widget="boolean_toggle"/>
                             </group>
                         </group>
                         <div style="
@@ -55,14 +55,14 @@
                             </div>
                         </div>
                         <group col="12" colspan="12" style="text-align: center;">
-                            <group colspan="4">
-                                <field name="setup" />
+                            <group colspan="3" style="margin: 0 30px;">
+                                <field name="setup" widget="boolean_toggle"/>
                             </group>
-                            <group colspan="4">
-                                <field name="color_setup" />
+                            <group colspan="3" style="margin: 0 30px;">
+                                <field name="color_setup" widget="boolean_toggle"/>
                             </group>
-                            <group colspan="4">
-                                <field name="diam_and_weekly_setup" />
+                            <group colspan="3" style="margin: 0 30px;">
+                                <field name="diam_and_weekly_setup" widget="boolean_toggle"/>
                             </group>
                         </group>
                     </group>
@@ -71,12 +71,12 @@
                     </div>
                     <group colspan="12" col="12" style="text-align: center;">
                         <group colspan="1">
-                            <field name="labels"/>
-                            <field name="forms"/>
+                            <field name="labels" widget="boolean_toggle"/>
+                            <field name="forms" widget="boolean_toggle"/>
                         </group>
                         <group colspan="1">
-                            <field name="coil_film_op"/>
-                            <field name="raw_mat_bucket_op"/>
+                            <field name="coil_film_op" widget="boolean_toggle"/>
+                            <field name="raw_mat_bucket_op" widget="boolean_toggle"/>
                         </group>
                     </group>
                     <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
@@ -84,17 +84,23 @@
                     </div>
                     <group colspan="12" col="12" style="text-align:center">
                         <group colspan="1">
-                            <field name="benches"/>
-                            <field name="empty_boxes"/>
+                            <field name="benches" widget="boolean_toggle"/>
+                            <field name="empty_boxes" widget="boolean_toggle"/>
                         </group>
                         <group colspan="1">
-                            <field name="coil_film_item"/>
-                            <field name="raw_mat_bucket_item"/>
+                            <field name="coil_film_item" widget="boolean_toggle"/>
+                            <field name="raw_mat_bucket_item" widget="boolean_toggle"/>
                         </group>
                         <group colspan="1">
-                            <field name="standards"/>
-                            <field name="pallets"/>
+                            <field name="standards" widget="boolean_toggle"/>
+                            <field name="pallets" widget="boolean_toggle"/>
                         </group>
+                        <footer>
+                            <group>
+                                <button name="go_to_process" type="object" string="Process" class="oe_highlight"/>           
+                                <button name="go_to_register" type="object" string="Register" class="oe_highlight"/>
+                            </group>
+                        </footer>
                     </group>
                 </sheet>
             </form>

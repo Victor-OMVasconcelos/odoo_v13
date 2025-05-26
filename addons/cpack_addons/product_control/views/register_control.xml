@@ -66,8 +66,10 @@
                             <field name="coil_band" widget="html" options="{'sanitize': False}" style="font-size:16px;"/>
                         </group>
                         <footer>
-                            <button name="go_to_process" type="object" string="Process" class="oe_highlight"/>
-                            <button name="go_to_final" type="object" string="Final" class="oe_highlight"/>
+                            <group>
+                                <button name="go_to_process" type="object" string="Process" class="oe_highlight"/>           
+                                <button name="go_to_final" type="object" string="Final" class="oe_highlight"/>
+                            </group>
                         </footer>
                     </group>
                 </sheet>
@@ -90,3 +92,4 @@
     </record>
 
 </odoo>
+

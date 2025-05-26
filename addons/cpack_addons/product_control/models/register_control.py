@@ -39,16 +39,17 @@ class register_control(models.Model):
             
 
             header = "{:<30}{:<30}{:<30}{:<4}\n".format("Supply","Item","Batch","%")
-            values = "{:<30}{:<30}{:<30}{:<4}\n\n".format(
+            values = "{:<30}{:<30}{:<30}{:<4}\n".format(
                 r.supply, r.item_batch, r.batch, r.percent)
             header = header.replace(" ", "\u00A0")
             values = values.replace(" ", "\u00A0")
+            line_break = "______________________________________________________________________________________________\n\n"
             block = f'<pre style="font-size:16px;">{header}{values}</pre>'
             if not r.complete_info:
                 r.complete_info = block
             else:
                 existing = r.complete_info.rstrip("</pre>")
-                r.complete_info = existing + values + "</pre>"
+                r.complete_info = existing + line_break + values + "</pre>"
 
             r.supply = 'masterbatch'
             r.item_batch = '0000000'
@@ -141,10 +142,11 @@ class register_control(models.Model):
                 'complete_info': r.complete_info,
                 'coil': r.coil,
                 'band': r.band,
-                'coil_band': r.coil_band
+                'coil_band': r.coil_band,
+                'register_id': r.id
             }
 
-            process_record = self.env['store.control'].search([('source_id', '=', r.id)], limit=1)
+            process_record = self.env['store.control'].search([('register_id', '=', r.id)], limit=1)
             if process_record:
                 process_record.write(values)
             else:
@@ -171,15 +173,30 @@ class register_control(models.Model):
                 'complete_info': r.complete_info,
                 'coil': r.coil,
                 'band': r.band,
-                'coil_band': r.coil_band
+                'coil_band': r.coil_band,
+                'register_id': r.id,
             }
 
-            process_record = self.env['store.control'].search([('source_id', '=', r.id)], limit=1)
+            process_record = self.env['store.control'].search([('register_id', '=', r.id)], limit=1)
             if process_record:
                 process_record.write(values)
             else:
-                values['source_id'] = r.id
                 self.env['store.control'].create(values)
+
+            final = self.env['final.control'].search([('new_id', '=',  r.id)], limit=1)
+            if final:
+                pass
+            else:
+                final = self.env['final.control'].create({'new_id': r.id})
             
             action = self.env.ref('product_control.action_final').read()[0]
+            action.update({
+                'res_id': final.id,           
+                'view_mode': 'form',               
+                'views': [(False, 'form')],        
+                'target': 'current',  
+                'flags': {'initial_mode': 'edit'},            
+            })
             return action
+
+            

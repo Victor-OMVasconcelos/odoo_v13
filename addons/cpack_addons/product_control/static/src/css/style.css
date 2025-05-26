@@ -1,0 +1,16 @@
+.o_form_field_boolean.o_field_widget.o_boolean_toggle .o_switch {
+    /* make the whole switch bigger */
+    transform: scale(1.5);
+    /* ensure the larger hit-area doesn’t overlap others */
+    margin: 0.3em;
+  }
+  /* if you need to tweak the knob specifically: */
+  .o_form_field_boolean.o_field_widget.o_boolean_toggle
+    .o_switch_core::before
+  {
+    /* bump up the circle size a bit more */
+    width: 1.2em !important;
+    height: 1.2em !important;
+    top: 0.15em !important;
+    left: 0.15em !important;
+  }

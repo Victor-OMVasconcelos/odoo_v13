@@ -4,15 +4,109 @@
         <field name="name">process.control.form</field>
         <field name="model">process.control</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form>
                 <sheet>
-                    <group>
-                        <field name="bleh"/>
-                    </group>
+                    <notebook>
+                        <page string="Product control">
+                            <div style="text-align: center; background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                                <h1 style="color: white; margin: 0;">Product control</h1>
+                            </div>
+                            <group col="12">
+                                <group col="7" colspan="12">
+                                    <separator string="Seam position"  style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="min_specified_seam_position" string="Min"/>
+                                    <field name="max_specified_seam_position" string="Max"/>
+                                    <field name="instrument_seam_position"/>
+                                    <separator string="External diameter" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="min_specified_external_diameter" string="Min"/>
+                                    <field name="max_specified_external_diameter" string="Max"/>
+                                </group>
+                                <separator string="" colspan="12"/>
+                                <separator string="" colspan="12"/>
+                                <group col="2" colspan="3" style="margin-bottom:-20px; padding-bottom:0;">
+                                    <separator string="Time"  style="margin-top:-4px; vertical-align:middle; font-size: 14px; width:9em;"/>
+                                    <field name="time" nolabel="1"/>
+                                </group>
+                                <group col="12" colspan="12" style="margin-bottom:-20px; padding-bottom:0;">
+                                    <group colspan="4">
+                                        <separator string="ME-QUA-CQ-049 Seam position" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    </group>
+                                    <group colspan="2">
+                                        <field name="min_seam_position" string="Min" style="width:9em;"/>
+                                    </group>
+                                    <group colspan="2">
+                                        <field name="max_seam_position" string="Max" style="width:9em;"/>
+                                    </group>
+                                </group>
+                                <group col="12" colspan="12" style="margin-bottom:20px; padding-bottom:0;">
+                                    <group colspan="4">
+                                        <separator string="ME-QUA-CQ-045 External diameter (mm)" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    </group>
+                                    <group colspan="2">
+                                        <field name="min_external_diameter" string="Min" style="width:9em;"/>
+                                    </group>
+                                    <group colspan="2">
+                                        <field name="max_external_diameter" string="Max" style="width:9em;"/>
+                                    </group>
+                                </group>
+                                <group col="4" colspan="12">
+                                    <separator string="ME-QUA-CQ-026 EVOH revelation (1 sample)" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="evoh_revelation" nolabel="1" style="width:9em;"/>
+                                    <separator string="ME-QUA-CQ-025 Color" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="color" nolabel="1" style="width:9em;"/>
+                                    <separator string="ME-QUA-CQ-010 Adherence" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="adherence" nolabel="1" style="width:9em;"/>
+                                    <separator string="ME-QUA-CQ-166 Flexibility" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="flexibility" nolabel="1" style="width:9em;"/>
+                                    <separator string="ME-QUA-CQ-058 Visual attributes - Seam" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="seam_visual_attributes" nolabel="1" style="width:9em;"/> 
+                                    <separator string="ME-QUA-CQ-028 Visual attributes - extrusion with film" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="extrusion_visual_attributes" nolabel="1" style="width:9em;"/>
+                                    <separator string="ME-QUA-CQ-025 Final art" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                                    <field name="final_art" nolabel="1" style="width:9em;"/>
+                                </group>
+                                <group colspan="12">
+                                    <button name="add_process_info" type="object" string="+ Add" class="oe_highlight" style="width: 10%;"/>
+                                </group>
+                                <hr/>
+                                <group colspan="12">
+                                    <field name="complete_info_process" nolabel="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Process control">
+                            <div style="text-align: center; background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                                <h1 style="color: white; margin: 0;">Process control</h1>
+                            </div>
+                            <group col="12">
+                                <group col="6" colspan="12">
+                                    <field name="fotocell_instrument"/>
+                                    <field name="fotocell_height_specified_min"/>
+                                    <field name="fotocell_height_specified_max"/>
+                                    <field name="length_instrument"/>
+                                    <field name="length_specified_min"/>
+                                    <field name="length_specified_max"/>
+                                </group>
+                                <hr/>
+                                <group col="6" colspan="12">
+                                    <field name="time2"/>
+                                    <field name="length_min"/>
+                                    <field name="length_max"/>
+                                    <field name="fotocell_height_min"/>
+                                    <field name="fotocell_height_max"/>
+                                    <field name="responsible"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Observations">
+                            <div style="text-align: center; background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                                <h1 style="color: white; margin: 0;">Observations</h1>
+                            </div>
+                            <field name="observation" style="text-align: center;"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
-    
-
 </odoo>
