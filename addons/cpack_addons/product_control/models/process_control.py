@@ -9,23 +9,12 @@ from datetime import timedelta
 class process_control(models.Model):
     _name = 'process.control'
     _description = 'After registery users will be directed to this model, where users will record all the necessary fields each hour'
-
-    min_specified_thickness = fields.Char(string="Minimum thickness", size=5)
-    max_specified_thickness = fields.Char(string="Maximum thickness", size=5)
-    min_specified_seam_position = fields.Char(string="Min", size=5)
-    max_specified_seam_position = fields.Char(string="Max", size=5)
-    min_specified_external_diameter = fields.Char(string="External diameter - Max", size=5)
-    max_specified_external_diameter = fields.Char(string="Max", size=5)
-    instrument_thickness = fields.Char(string="Instrument thickness", size=5)
-    instrument_seam_position = fields.Char(string="Instrument", size=5)
     
     time = fields.Char(string="Time", size=5)
-    min_thickness = fields.Char(string="Min thickness", size=5)
-    max_thickness = fields.Char(string="Max thickness", size=5)
-    min_seam_position = fields.Char(string="Min seam position", size=5)
-    max_seam_position = fields.Char(string="Max seam position", size=5)
-    min_external_diameter = fields.Char(string="Min external diameter(mm)", size=5)
-    max_external_diameter = fields.Char(string="Max external diameter(mm)", size=5)
+    min_seam_position = fields.Char(string="Min", size=5)
+    max_seam_position = fields.Char(string="Max", size=5)
+    min_external_diameter = fields.Char(string="Min", size=5)
+    max_external_diameter = fields.Char(string="Max", size=5)
     evoh_revelation = fields.Char(string="EVOH revelation (1 sample)", size=5)
     color = fields.Char(string="Color", size=1)
     seam_visual_attributes = fields.Char(string="Visual attributes - Seam", size=1)
@@ -37,69 +26,78 @@ class process_control(models.Model):
     complete_info_process = fields.Html(string="Tabela processos", readonly="1")
 
     observation = fields.Text(string="Observation")
-    
-    time2 = fields.Char(string="Time", size=5)
-    fotocell_height_specified_min = fields.Char(string="Fotocell Specified minimum height")
-    fotocell_height_specified_max = fields.Char(string="Fotocell specified maximum height")
-    length_specified_min = fields.Char(string="Specified minimum length(mm)")
-    length_specified_max = fields.Char(string="Specified maximum length(mm)")
-    fotocell_height_min = fields.Char(string="Minimum fotocell height")
-    fotocell_height_max = fields.Char(string="Maximum fotocell height")
-    length_min = fields.Char(string="Minimum length(mm)")
-    length_max = fields.Char(string="Maximum length(mm)")
-    fotocell_instrument = fields.Char(string="Fotocell instrument")
-    length_instrument = fields.Char(string="Length instrument")
-    responsible = fields.Char(string='Responsable', default=lambda self: str(self.env.user.name), required=True)
+
+    fotocell_height_min = fields.Char(string="Min")
+    fotocell_height_max = fields.Char(string="Max")
+    length_min = fields.Char(string="Min")
+    length_max = fields.Char(string="Max")
+    responsible = fields.Char(string='Responsible', default=lambda self: str(self.env.user.name), required=True)
+    copy_id = fields.Many2one(comodel_name='register.id')
 
     def add_process_info(self):
         for r in self:
+            copy = r.copy_id
+
             header = "{:<20}{:<18}".format("Item","Specification")
             values1 = "{:<10}\n".format(r.time)
             
-            line2 = "{:<20}{:<20}".format("Min seam position",r.min_specified_seam_position)
-            values2 = "{:<40}\n".format(r.min_seam_position)
+            line2 = "{:<25}{:<15}".format("Min seam position",copy.min_specified_seam_position)
+            values2 = "{:<20}\n".format(r.min_seam_position)
 
-            line11 = "{:<20}{:<20}".format("Max seam position",r.max_specified_seam_position)
-            values11 = "{:<16}\n".format(r.max_seam_position)
+            line3 = "{:<25}{:<15}".format("Max seam position",copy.max_specified_seam_position)
+            values3 = "{:<16}\n".format(r.max_seam_position)
             
-            line3 = "{:<20}{:<20}".format("Min external ⌀ (mm)",r.min_specified_external_diameter)
-            values3= "{:<20}\n".format(r.min_external_diameter)
+            line4 = "{:<25}{:<15}".format("Min external ⌀ (mm)",copy.min_specified_external_diameter)
+            values4= "{:<20}\n".format(r.min_external_diameter)
 
-            line12 = "{:<20}{:<20}".format("Max external ⌀ (mm)", r.max_specified_external_diameter)
-            values12 = "{:<20}\n".format(r.max_external_diameter)
+            line5 = "{:<25}{:<15}".format("Max external ⌀ (mm)", copy.max_specified_external_diameter)
+            values5 = "{:<20}\n".format(r.max_external_diameter)
             
-            line4 = "{:<20}{:<20}".format("EVOH","A")
-            values4 = "{:<20}\n".format(r.evoh_revelation)
+            line6 = "{:<25}{:<15}".format("EVOH","A")
+            values6 = "{:<20}\n".format(r.evoh_revelation)
             
-            line5 = "{:<20}{:<20}".format("Color","A")
-            values5 = "{:<20}\n".format(r.color)
+            line7 = "{:<25}{:<15}".format("Color","A")
+            values7 = "{:<20}\n".format(r.color)
 
-            line6 = "{:<20}{:<20}".format("V.A - Seam","A")
-            values6 = "{:<20}\n".format(r.seam_visual_attributes)
+            line8 = "{:<25}{:<15}".format("V.A - Seam","A")
+            values8 = "{:<20}\n".format(r.seam_visual_attributes)
 
-            line7 = "{:<20}{:<20}".format("V.A - ext. film","A")
-            values7 = "{:<20}\n".format(r.extrusion_visual_attributes)
+            line9 = "{:<25}{:<15}".format("V.A - ext. film","A")
+            values9 = "{:<20}\n".format(r.extrusion_visual_attributes)
 
-            line8 = "{:<20}{:<20}".format("Adherence", "A")
-            values8 = "{:<20}\n".format(r.adherence)
+            line10 = "{:<25}{:<15}".format("Adherence", "A")
+            values10 = "{:<20}\n".format(r.adherence)
 
-            line9 = "{:<20}{:<20}".format("Flexibility", "A")
-            values9 = "{:<20}\n".format(r.flexibility)
+            line11 = "{:<25}{:<15}".format("Flexibility", "A")
+            values11 = "{:<20}\n".format(r.flexibility)
 
-            line10 = "{:<20}{:<20}".format("Final art","A")
-            values10 = "{:<20}\n\n".format(r.final_art)
+            line12 = "{:<25}{:<15}".format("Final art","A")
+            values12 = "{:<20}\n\n".format(r.final_art)
+
+            line13 = "{:<40}\n".format("Process control")
+
+            line14 = "{:<25}{:<15}".format("Min fotocell height",copy.fotocell_height_specified_min)
+            values14 = "{:<20}\n".format(r.fotocell_height_min)
+
+            line15 = "{:<25}{:<15}".format("Max fotoecell height", copy.fotocell_height_specified_max)
+            values15 = "{:<20}\n".format(r.fotocell_height_max)
+
+            line16 = "{:<25}{:<15}".format("Min length", copy.length_specified_min)
+            values16 = "{:<20}\n".format(r.length_min)
+
+            line17 = "{:<25}{:<15}".format("Max length", copy.length_specified_max)
+            values17 = "{:<20}\n".format(r.length_max)
+
+            line18 = "{:<40}".format("Responsible")
+            values18 = "{:<20}\n".format(r.responsible)
 
             header = header.replace(" ", "\u00A0")
             values1 = values1.replace(" ", "\u00A0") 
 
             line2 = line2.replace(" ", "\u00A0")
             values2 = values2.replace(" ", "\u00A0")
-            line11 = line11.replace(" ", "\u00A0")
-            values11 = values11.replace(" ", "\u00A0")
             line3 = line3.replace(" ", "\u00A0")
             values3 = values3.replace(" ", "\u00A0")
-            line12 = line12.replace(" ", "\u00A0")
-            values12 = values12.replace(" ", "\u00A0")
             line4 = line4.replace(" ", "\u00A0")
             values4 = values4.replace(" ", "\u00A0")
             line5 = line5.replace(" ", "\u00A0")
@@ -114,34 +112,56 @@ class process_control(models.Model):
             values9 = values9.replace(" ", "\u00A0")
             line10 = line10.replace(" ", "\u00A0")
             values10 = values10.replace(" ", "\u00A0")
-            
+            line11 = line11.replace(" ", "\u00A0")
+            values11 = values11.replace(" ", "\u00A0")
+            line12 = line12.replace(" ", "\u00A0")
+            values12 = values12.replace(" ", "\u00A0")
+            line13 = line13.replace(" ", "\u00A0")
+            line14 = line14.replace(" ", "\u00A0")
+            values14 = values14.replace(" ", "\u00A0")
+            line15 = line15.replace(" ", "\u00A0")
+            values15 = values15.replace(" ", "\u00A0")
+            line16 = line16.replace(" ", "\u00A0")
+            values16 = values16.replace(" ", "\u00A0")
+            line17 = line17.replace(" ", "\u00A0")
+            values17 = values17.replace(" ", "\u00A0")
+            line18 = line18.replace(" ", "\u00A0")
+            values18 = values18.replace(" ", "\u00A0")
+
+            blank_label = "\u00A0" * 5
+
             block = (
                     "<pre "
                     "style='display: inline-block;"
                     " font-family: monospace;'>"
-                    f"{header}{values1}{line2}{values2}{line11}{values11}"
-                    f"{line12}{values12}{line3}{values3}{line4}{values4}{line5}{values5}"
-                    f"{line6}{values6}{line7}{values7}{line8}{values8}"
-                    f"{line9}{values9}{line10}{values10}"
+                    f"{header}{values1}{line2}{values2}{line3}{values3}"
+                    f"{line4}{values4}{line5}{values5}{line6}{values6}"
+                    f"{line7}{values7}{line8}{values8}{line9}{values9}"
+                    f"{line10}{values10}{line11}{values11}{line12}{values12}"
+                    f"{line13}{line14}{values14}{line15}{values15}{line16}"
+                    f"{values16}{line17}{values17}{line18}{values18}"
                     "</pre>"
                     )
             
             block2 = (
                 "<pre style='display: inline-block; font-family: monospace;'>"
-                f"{values1}{values2}{values11}{values3}"
-                f"{values12}{values4}{values5}{values6}"
-                f"{values7}{values8}{values9}{values10}"
+                f"{blank_label}{values1}{blank_label}{values2}{blank_label}"
+                f"{values3}{blank_label}{values4}{blank_label}{values5}{blank_label}{values6}"
+                f"{blank_label}{values7}{blank_label}{values8}{blank_label}{values9}"
+                f"{blank_label}{values10}{blank_label}{values11}{blank_label}{values12}\n"
+                f"{blank_label}{values14}{blank_label}{values15}{blank_label}{values16}"
+                f"{blank_label}{values17}{blank_label}{values18}"
                 "</pre>"
             )
-            if not r.complete_info_process:
-                r.complete_info_process = block
+            existing = r.complete_info_process
+            if not existing:
+                existing = block
             else:
-                r.complete_info_process += block2 
+                existing = existing + block2 
+
             r.time = False
             r.min_seam_position = False
             r.max_seam_position = False
-            r.min_specified_external_diameter = False
-            r.max_specified_external_diameter = False
             r.min_external_diameter = False
             r.max_external_diameter = False
             r.evoh_revelation = False
@@ -151,9 +171,6 @@ class process_control(models.Model):
             r.adherence = False
             r.flexibility = False
             r.final_art = False
-            r.instrument_seam_position = False
-            r.min_specified_seam_position = False
-            r.max_specified_seam_position = False
 
         return {
             'type': 'ir.actions.act_window',

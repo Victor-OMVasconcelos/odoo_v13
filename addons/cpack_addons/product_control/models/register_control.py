@@ -31,6 +31,19 @@ class register_control(models.Model):
     band = fields.Char(string="Band", size=2, default="A2")
     coil_band = fields.Text(string='Coil/Band', readonly=True)
 
+    fotocell_height_specified_min = fields.Char(string="Min")
+    fotocell_height_specified_max = fields.Char(string="Max")
+    length_specified_min = fields.Char(string="Min")
+    length_specified_max = fields.Char(string="Max")
+    fotocell_instrument = fields.Char(string="Instrument")
+    length_instrument = fields.Char(string="Instrument")
+
+    min_specified_seam_position = fields.Char(string="Min", size=5)
+    max_specified_seam_position = fields.Char(string="Max", size=5)
+    min_specified_external_diameter = fields.Char(string="Min", size=5)
+    max_specified_external_diameter = fields.Char(string="Max", size=5)
+    instrument_seam_position = fields.Char(string="Instrument", size=5)
+
 
     def add_info(self):
         for r in self:
@@ -53,7 +66,7 @@ class register_control(models.Model):
 
             r.supply = 'masterbatch'
             r.item_batch = '0000000'
-            r.batch = '00000000'
+            r.batch = '0000000'
             r.percent = '0'
         return {
             'type': 'ir.actions.act_window',

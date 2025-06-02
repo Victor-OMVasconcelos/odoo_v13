@@ -65,6 +65,28 @@
                         <group colspan="6">
                             <field name="coil_band" widget="html" options="{'sanitize': False}" style="font-size:16px;"/>
                         </group>
+                    </group>
+                    <div style="text-align: center; background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                        <h1 style="color: white; margin: 0;">Specifications</h1>
+                    </div>
+                    <group col="12">
+                        <group col="7" colspan="12">
+                            <separator string="Seam position"  style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                            <field name="min_specified_seam_position"/>
+                            <field name="max_specified_seam_position"/>
+                            <field name="instrument_seam_position"/>
+                            <separator string="Fotocell height"  style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                            <field name="fotocell_height_specified_min"/>
+                            <field name="fotocell_height_specified_max"/>
+                            <field name="fotocell_instrument"/>
+                            <separator string="Length(mm)"  style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                            <field name="length_specified_min"/>
+                            <field name="length_specified_max"/>
+                            <field name="length_instrument"/>
+                            <separator string="External diameter" style="margin-top:-4px; vertical-align:middle; font-size: 14px"/>
+                            <field name="min_specified_external_diameter"/>
+                            <field name="max_specified_external_diameter"/>
+                        </group>
                         <footer>
                             <group>
                                 <button name="go_to_process" type="object" string="Process" class="oe_highlight"/>           
