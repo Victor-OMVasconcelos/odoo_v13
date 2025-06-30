@@ -70,7 +70,8 @@ class final_control(models.Model):
                 'view_mode': 'form',               
                 'views': [(False, 'form')],        
                 'target': 'current', 
-                'flags': {'initial_mode': 'edit'},             
+                'flags': {'initial_mode': 'edit'},
+                'context': dict(self.env.context, no_breadcrumbs=True),            
             })
             return action
         
@@ -98,14 +99,70 @@ class final_control(models.Model):
                 'pallets': r.pallets,
             }
 
-            process_record = self.env['store.control'].search([('register_id', '=', r.id)], limit=1)
+            process_record = self.env['store.control'].search([('register_id', '=', r.new_id.id)], limit=1)
             if process_record:
                 process_record.write(values)
+
+            process = self.env['process.control'].search([('copy_id', '=',  r.new_id.id)], limit=1)
+            if process:
+                pass
             else:
-                self.env['store.control'].create(values)
+                process = self.env['process.control'].create({'copy_id': r.new_id.id})
+            
             action = self.env.ref('product_control.action_process').read()[0]
+            action.update({
+                'res_id': process.id,           
+                'view_mode': 'form',               
+                'views': [(False, 'form')],        
+                'target': 'current',              
+                'flags': {'initial_mode': 'edit'},
+                'context': dict(self.env.context, no_breadcrumbs=True),
+            })
             return action
+            
+    def end_form(self):
+        for r in self:
+            values = {
+                'shift1_1': r.shift1_1,
+                'shift1_2': r.shift1_2,
+                'shift2_1': r.shift2_1,
+                'shift2_2': r.shift2_2,
+                'shift3_1': r.shift3_1,
+                'shift3_2': r.shift3_2,
+                'setup': r.setup,
+                'color_setup': r.color_setup,
+                'diam_and_weekly_setup': r.diam_and_weekly_setup,
+                'labels': r.labels,
+                'forms': r.forms,
+                'coil_film_op': r.coil_film_op,
+                'raw_mat_bucket_op': r.raw_mat_bucket_op,
+                'benches': r.benches,
+                'empty_boxes': r.empty_boxes,
+                'coil_film_item': r.coil_film_item,
+                'raw_mat_bucket_item': r.raw_mat_bucket_item,
+                'standards': r.standards,
+                'pallets': r.pallets,
+            }
 
+            process_record = self.env['store.control'].search([('register_id', '=', r.new_id.id)], limit=1)
+            if process_record:
+                process_record.write(values)
+                process_record.write({'register_id': False})
 
+            if r.new_id:
+                r.new_id.unlink()
+
+        return {
+            'name': _('Register Controls'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'register.control',
+            'view_mode': 'tree,form',
+            'target': 'current',
+            'domain': [],
+            'context': {},
+        }
+            
+
+            
     
     

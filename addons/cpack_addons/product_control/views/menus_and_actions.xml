@@ -38,7 +38,8 @@
         id="process_control"
         name="Process"
         parent="control_root_menu"
-        action="action_process"/>
+        action="action_process"
+        groups="product_control.group_admin"/>
 
     <record id="action_final" model="ir.actions.act_window">
         <field name="name">Final</field>
@@ -50,5 +51,6 @@
         id="final_control"
         name="Final"
         parent="control_root_menu"
-        action="action_final"/>
+        action="action_final"
+        groups="product_control.group_admin"/>
 </odoo>

@@ -13,11 +13,11 @@ class register_control(models.Model):
     _description = 'Inicial registry. Client will be able to insert the date, item and op. Besides that they can also insert the supplies that will be used in the process.'
 
     date = fields.Date(string="Date:")
-    item = fields.Char(string="Item:",size=8)
-    op = fields.Char(string="Op number:",size=8)
+    item = fields.Char(string="Item:",size=16)
+    op = fields.Char(string="Op number:",size=16)
     line_d2 = fields.Boolean(string="Line D2")
     line_d1 = fields.Boolean(string="Line D1")
-    box = fields.Char(string="Box",size=8)
+    box = fields.Char(string="Box",size=16)
     verify = fields.Boolean(string="Check seam sensor:")
     line = fields.Selection([('d1','D1'),('d2', 'D2')] ,string="Line", compute="_compute_line", store=True)
     process = fields.Selection([('extrusion_with_film','Extrusion with film')], string="process", default='extrusion_with_film')
@@ -38,11 +38,11 @@ class register_control(models.Model):
     fotocell_instrument = fields.Char(string="Instrument")
     length_instrument = fields.Char(string="Instrument")
 
-    min_specified_seam_position = fields.Char(string="Min", size=5)
-    max_specified_seam_position = fields.Char(string="Max", size=5)
-    min_specified_external_diameter = fields.Char(string="Min", size=5)
-    max_specified_external_diameter = fields.Char(string="Max", size=5)
-    instrument_seam_position = fields.Char(string="Instrument", size=5)
+    min_specified_seam_position = fields.Char(string="Min", size=6)
+    max_specified_seam_position = fields.Char(string="Max", size=6)
+    min_specified_external_diameter = fields.Char(string="Min", size=6)
+    max_specified_external_diameter = fields.Char(string="Max", size=6)
+    instrument_seam_position = fields.Char(string="Instrument", size=6)
 
 
     def add_info(self):
@@ -156,18 +156,35 @@ class register_control(models.Model):
                 'coil': r.coil,
                 'band': r.band,
                 'coil_band': r.coil_band,
-                'register_id': r.id
+                'register_id': r.id,
+                'instrument_seam_position': r.instrument_seam_position,
+                'fotocell_instrument': r.fotocell_instrument,
+                'length_instrument': r.length_instrument,
             }
 
             process_record = self.env['store.control'].search([('register_id', '=', r.id)], limit=1)
             if process_record:
                 process_record.write(values)
             else:
-                values['source_id'] = r.id
                 self.env['store.control'].create(values)
             
+            process = self.env['process.control'].search([('copy_id', '=',  r.id)], limit=1)
+            if process:
+                pass
+            else:
+                process = self.env['process.control'].create({'copy_id': r.id})
+            
             action = self.env.ref('product_control.action_process').read()[0]
+            action.update({
+                'res_id': process.id,           
+                'view_mode': 'form',               
+                'views': [(False, 'form')],        
+                'target': 'current',  
+                'flags': {'initial_mode': 'edit'},
+                'context': dict(self.env.context, no_breadcrumbs=True),            
+            })
             return action
+
     def go_to_final(self):
         for r in self:
             values = {
@@ -188,6 +205,9 @@ class register_control(models.Model):
                 'band': r.band,
                 'coil_band': r.coil_band,
                 'register_id': r.id,
+                'instrument_seam_position': r.instrument_seam_position,
+                'fotocell_instrument': r.fotocell_instrument,
+                'length_instrument': r.length_instrument,
             }
 
             process_record = self.env['store.control'].search([('register_id', '=', r.id)], limit=1)
@@ -208,7 +228,8 @@ class register_control(models.Model):
                 'view_mode': 'form',               
                 'views': [(False, 'form')],        
                 'target': 'current',  
-                'flags': {'initial_mode': 'edit'},            
+                'flags': {'initial_mode': 'edit'},
+                'context': dict(self.env.context, no_breadcrumbs=True),      
             })
             return action
 

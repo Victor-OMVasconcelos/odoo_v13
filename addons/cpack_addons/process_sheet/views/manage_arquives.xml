@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="manage_arquives_tree" model="ir.ui.view">
+        <field name="name">manage.arquives.tree</field>
+        <field name="model">manage.arquives</field>
+        <field name="arch" type="xml">
+            <tree string="Processes" class="custom_class">
+                <field name="process"/>
+                <field name="production_line"/>
+                <field name="diameter"/>
+                <field name="arquive"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="manage_arquives_form" model="ir.ui.view">
+        <field name="name">manage.arquives.form</field>
+        <field name="model">manage.arquives</field>
+        <field name="arch" type="xml">
+            <form string="Insert" class="cc no-breadcrumb">
+                <header>
+                    <button name="revise" type="object" class="oe_highlight" string="Revise" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="publish" type="object" class="oe_highlight" string="Publish" attrs="{'invisible': [('state', '!=', 'revision')]}"/>
+                    <field name="state" widget="statusbar" readonly="1"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="process" required="1"/>
+                        <field name="production_line" required="1"/>
+                        <field name="diameter" required="1"/>
+                        <field name="arquive" required="1" widget="image"/>
+                    </group>
+                </sheet>
+                <div class="o_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+     <record id="manage_arquives_kanban" model="ir.ui.view">
+        <field name="name">manage.arquives.kanban</field>
+        <field name="model">manage.arquives</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" default_order="state" class="o_kanban_mobile" sample="1" quick_create="false">
+                <progressbar field="state"
+                   colors='{"published": "success", "revision": "default", "draft": "info"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content">
+                            process:
+                            <field name="process"/>
+                            <br/>
+                            Linha:
+                            <field name="production_line"/>
+                            <br/>
+                            diameter:
+                            <field name="diameter"/>
+                        </div>
+                        <footer>
+                            <div>
+                                <field name="state"
+                                    widget="label_selection"
+                                    options="{'classes': {'draft': 'info', 'revision': 'default', 'published': 'success'}}" class="ms-auto"/>
+                            </div>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+       </field>
+    </record>
+
+    <record id="manage_arquives_search" model="ir.ui.view">
+        <field name="name">manage.arquives.search</field>
+        <field name="model">manage.arquives</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="process"/>
+                <field name="production_line"/>
+                <field name="diameter"/>
+                <filter name="diameter_filter_19" string="Diameter" domain="[('diameter', '=', '19')]"/>
+                <filter name="diameter_filter_22" string="Diameter 22" domain="[('diameter', '=', '22')]"/>
+                <filter name="diameter_filter_25" string="Diameter 25" domain="[('diameter', '=', '25')]"/>
+                <filter name="diameter_filter_30" string="Diameter 30" domain="[('diameter', '=', '30')]"/>
+                <filter name="diameter_filter_40" string="Diameter 40" domain="[('diameter', '=', '40')]"/>
+                <filter name="diameter_filter_35" string="Diameter 35" domain="[('diameter', '=', '35')]"/>
+                <filter name="diameter_filter_50" string="Diameter 50" domain="[('diameter', '=', '50')]"/>
+                <filter name="diameter_filter_60" string="Diameter 60" domain="[('diameter', '=', '60')]"/>
+                <filter name="production_line_filter_1" string="Line 1" domain="[('production_line', '=', '1')]"/>
+                <filter name="production_line_filter_2" string="Line 2" domain="[('production_line', '=', '2')]"/>
+                <filter name="production_line_filter_3" string="Line 3" domain="[('production_line', '=', '3')]"/>
+                <filter name="production_line_filter_4" string="Line 4" domain="[('production_line', '=', '4')]"/>
+                <filter name="production_line_filter_5" string="Line 5" domain="[('production_line', '=', '5')]"/>
+                <filter name="production_line_filter_6" string="Line 6" domain="[('production_line', '=', '6')]"/>
+                <filter name="production_line_filter_7" string="Line 7" domain="[('production_line', '=', '7')]"/>
+                <filter name="production_line_filter_8" string="Line 8" domain="[('production_line', '=', '8')]"/>
+                <filter name="process_filter" string="Extrusion" domain="[('process', '=', 'extrusion')]"/>
+                <group string="Group by">
+                    <filter name="by_process" string="process" context="{'group_by': 'process' }"/>
+                    <filter name="by_line" string="Line" context="{'group_by': 'production_line' }"/>
+                    <filter name="pby_diameter" string="diameter" context="{'group_by': 'diameter' }"/>
+                </group>
+                <searchpanel>
+                    <field name="state"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+</odoo>

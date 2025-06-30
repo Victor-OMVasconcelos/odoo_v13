@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+admin_store_control,admin store control,model_store_control,product_control.group_admin,1,1,1,1
+manager_store_control,manager store control,model_store_control,product_control.group_manager,1,0,0,0
+operator_store_control,operator store control,model_store_control,product_control.group_operator,0,0,0,0
+
+operator_register_control,operator register control,model_register_control,product_control.group_operator,1,1,1,0
+manager_register_control,manager register control,model_register_control,product_control.group_manager,1,0,0,0
+admin_register_control,admin register control,model_register_control,product_control.group_admin,1,1,1,1
+
+operator_process_control,operator process control,model_process_control,product_control.group_operator,1,1,1,0
+manager_process_control,manager process control,model_process_control,product_control.group_manager,1,0,0,0
+admin_process_control,admin process control,model_process_control,product_control.group_admin,1,1,1,1
+
+operator_final_control,operator final control,model_final_control,product_control.group_operator,1,1,1,1
+manager_final_control,manager final control,model_final_control,product_control.group_manager,1,0,0,0
+admin_final_control,admin final control,model_final_control,product_control.group_admin,1,1,1,1

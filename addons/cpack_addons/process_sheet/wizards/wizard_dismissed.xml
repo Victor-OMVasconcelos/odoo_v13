@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_dismissed_view" model="ir.ui.view">
+        <field name="name">wizard.dismissed.form</field>
+        <field name="model">wizard.dismissed</field>
+        <field name="arch" type="xml">
+            <form string="Dismiss">
+                <group>
+                    <field name="motive" placeholder="Add the motive for which the solicitation is being dismissed"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

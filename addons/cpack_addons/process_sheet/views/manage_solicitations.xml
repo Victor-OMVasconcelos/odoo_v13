@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="manage_solicitations_form" model="ir.ui.view">
+        <field name="name">manage.solicitations.form</field>
+        <field name="model">manage.solicitations</field>
+        <field name="arch" type="xml">
+            <form string="Solicitations" class="no-breadcrumb">
+                <header>
+                    <button name="solicitation_granted" type="object" class="oe_highlight" string="Grant" attrs="{'invisible': [('situation', '!=', 'evaluating')]}"/>
+                    <button name="solicitation_dismissed" type="object" string="Dismiss" attrs="{'invisible': [('situation', '!=', 'evaluating')]}"/>
+                    <field name="situation" widget="statusbar" readonly="1"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="production_line"/>
+                        <field name="date"/>
+                        <field name="solicitant"/>
+                        <field name="altered_parameter"/>
+                        <field name="new_value"/>
+                        <field name="motive"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="manage_solicitations_tree" model="ir.ui.view">
+        <field name="name">manage.solicitations.tree</field>
+        <field name="model">manage.solicitations</field>
+        <field name="arch" type="xml">
+            <tree string="Solicited alterations">
+                <field name="process"/>
+                <field name="date"/>
+                <field name="solicitant"/>
+                <field name="situation" widget="label_selection" 
+                                       options="{'classes': {'awaiting': 'warning','evaluating': 'info', 'dismissed': 'danger', 
+                                       'granted': 'success'}}" class="ms-auto"/>
+                <field name="dateR"/>
+                <field name="responsable"/>
+                <field name="motive"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="manage_solicitations_search" model="ir.ui.view">
+    <field name="name">manage.solicitations.search</field>
+    <field name="model">manage.solicitations</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="situation_group"/>
+            <group expand="0" string="Status">
+                <filter name="evaluating" string="Evaluating" domain="[('situation_group','=','evaluating')]" context="{'group_by': 'situation_group'}" help="Show only evaluating requests" />
+                <filter name="history" string="History" domain="[('situation_group','=','history')]" context="{'group_by': 'situation_group'}" help="Show approved/dismissed records" />
+            </group>
+        </search>
+    </field>
+</record>
+
+</odoo>

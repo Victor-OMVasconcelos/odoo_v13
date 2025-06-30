@@ -32,132 +32,88 @@ class process_control(models.Model):
     length_min = fields.Char(string="Min")
     length_max = fields.Char(string="Max")
     responsible = fields.Char(string='Responsible', default=lambda self: str(self.env.user.name), required=True)
-    copy_id = fields.Many2one(comodel_name='register.id')
+    copy_id = fields.Many2one(comodel_name='register.id', ondelete='cascade',index=True)
+
 
     def add_process_info(self):
         for r in self:
-            copy = r.copy_id
+            copy = self.env['register.control'].search([('id', '=',  r.copy_id.id)], limit=1)
 
-            header = "{:<20}{:<18}".format("Item","Specification")
-            values1 = "{:<10}\n".format(r.time)
-            
-            line2 = "{:<25}{:<15}".format("Min seam position",copy.min_specified_seam_position)
-            values2 = "{:<20}\n".format(r.min_seam_position)
+            rows1 = [
+            ("Item",                    "Especificado",                   r.time),
+            ("Min posição emenda",       copy.min_specified_seam_position, r.min_seam_position),
+            ("Max posição emenda",       copy.max_specified_seam_position, r.max_seam_position),
+            ("Min ⌀ externo (mm)",     copy.min_specified_external_diameter, r.min_external_diameter),
+            ("Max ⌀ externo (mm)",     copy.max_specified_external_diameter, r.max_external_diameter),
+            ("EVOH",                    "A",                  r.evoh_revelation),
+            ("Cor",                   "A",                  r.color),
+            ("A.V - emenda",              "A",                  r.seam_visual_attributes),
+            ("A.V - ext c/ filme ",         "A",                  r.extrusion_visual_attributes),
+            ("Aderência",               "A",                  r.adherence),
+            ("Flexibilidade",             "A",                  r.flexibility),
+            ("Arte final",               "A",                  r.final_art),
+            ("",                        "",                   ""),
+            ("Controle de processo",         "",                   ""),
+            ("Min altura fotocélula",     copy.fotocell_height_specified_min, r.fotocell_height_min),
+            ("Max altura fotocélula",     copy.fotocell_height_specified_max, r.fotocell_height_max),
+            ("Min comprimento",              copy.length_specified_min, r.length_min),
+            ("Max comprimento",              copy.length_specified_max, r.length_max),
+            ("Responsável",             "",                  r.responsible),
+            ]
 
-            line3 = "{:<25}{:<15}".format("Max seam position",copy.max_specified_seam_position)
-            values3 = "{:<16}\n".format(r.max_seam_position)
-            
-            line4 = "{:<25}{:<15}".format("Min external ⌀ (mm)",copy.min_specified_external_diameter)
-            values4= "{:<20}\n".format(r.min_external_diameter)
+            rows2 = [
+            ("", "", r.time),
+            ("", "", r.min_seam_position),
+            ("", "", r.max_seam_position),
+            ("", "", r.min_external_diameter),
+            ("", "", r.max_external_diameter),
+            ("", "", r.evoh_revelation),
+            ("", "", r.color),
+            ("", "", r.seam_visual_attributes),
+            ("", "", r.extrusion_visual_attributes),
+            ("", "", r.adherence),
+            ("", "", r.flexibility),
+            ("", "", r.final_art),
+            ("", "", ""),  
+            ("", "", ""),  
+            ("", "", r.fotocell_height_min),
+            ("", "", r.fotocell_height_max),
+            ("", "", r.length_min),
+            ("", "", r.length_max),
+            ("", "", r.responsible),
+            ]
 
-            line5 = "{:<25}{:<15}".format("Max external ⌀ (mm)", copy.max_specified_external_diameter)
-            values5 = "{:<20}\n".format(r.max_external_diameter)
-            
-            line6 = "{:<25}{:<15}".format("EVOH","A")
-            values6 = "{:<20}\n".format(r.evoh_revelation)
-            
-            line7 = "{:<25}{:<15}".format("Color","A")
-            values7 = "{:<20}\n".format(r.color)
-
-            line8 = "{:<25}{:<15}".format("V.A - Seam","A")
-            values8 = "{:<20}\n".format(r.seam_visual_attributes)
-
-            line9 = "{:<25}{:<15}".format("V.A - ext. film","A")
-            values9 = "{:<20}\n".format(r.extrusion_visual_attributes)
-
-            line10 = "{:<25}{:<15}".format("Adherence", "A")
-            values10 = "{:<20}\n".format(r.adherence)
-
-            line11 = "{:<25}{:<15}".format("Flexibility", "A")
-            values11 = "{:<20}\n".format(r.flexibility)
-
-            line12 = "{:<25}{:<15}".format("Final art","A")
-            values12 = "{:<20}\n\n".format(r.final_art)
-
-            line13 = "{:<40}\n".format("Process control")
-
-            line14 = "{:<25}{:<15}".format("Min fotocell height",copy.fotocell_height_specified_min)
-            values14 = "{:<20}\n".format(r.fotocell_height_min)
-
-            line15 = "{:<25}{:<15}".format("Max fotoecell height", copy.fotocell_height_specified_max)
-            values15 = "{:<20}\n".format(r.fotocell_height_max)
-
-            line16 = "{:<25}{:<15}".format("Min length", copy.length_specified_min)
-            values16 = "{:<20}\n".format(r.length_min)
-
-            line17 = "{:<25}{:<15}".format("Max length", copy.length_specified_max)
-            values17 = "{:<20}\n".format(r.length_max)
-
-            line18 = "{:<40}".format("Responsible")
-            values18 = "{:<20}\n".format(r.responsible)
-
-            header = header.replace(" ", "\u00A0")
-            values1 = values1.replace(" ", "\u00A0") 
-
-            line2 = line2.replace(" ", "\u00A0")
-            values2 = values2.replace(" ", "\u00A0")
-            line3 = line3.replace(" ", "\u00A0")
-            values3 = values3.replace(" ", "\u00A0")
-            line4 = line4.replace(" ", "\u00A0")
-            values4 = values4.replace(" ", "\u00A0")
-            line5 = line5.replace(" ", "\u00A0")
-            values5 = values5.replace(" ", "\u00A0")
-            line6 = line6.replace(" ", "\u00A0")
-            values6 = values6.replace(" ", "\u00A0")
-            line7 = line7.replace(" ", "\u00A0")
-            values7 = values7.replace(" ", "\u00A0")
-            line8 = line8.replace(" ", "\u00A0")
-            values8 = values8.replace(" ", "\u00A0")
-            line9 = line9.replace(" ", "\u00A0")
-            values9 = values9.replace(" ", "\u00A0")
-            line10 = line10.replace(" ", "\u00A0")
-            values10 = values10.replace(" ", "\u00A0")
-            line11 = line11.replace(" ", "\u00A0")
-            values11 = values11.replace(" ", "\u00A0")
-            line12 = line12.replace(" ", "\u00A0")
-            values12 = values12.replace(" ", "\u00A0")
-            line13 = line13.replace(" ", "\u00A0")
-            line14 = line14.replace(" ", "\u00A0")
-            values14 = values14.replace(" ", "\u00A0")
-            line15 = line15.replace(" ", "\u00A0")
-            values15 = values15.replace(" ", "\u00A0")
-            line16 = line16.replace(" ", "\u00A0")
-            values16 = values16.replace(" ", "\u00A0")
-            line17 = line17.replace(" ", "\u00A0")
-            values17 = values17.replace(" ", "\u00A0")
-            line18 = line18.replace(" ", "\u00A0")
-            values18 = values18.replace(" ", "\u00A0")
-
-            blank_label = "\u00A0" * 5
-
-            block = (
-                    "<pre "
-                    "style='display: inline-block;"
-                    " font-family: monospace;'>"
-                    f"{header}{values1}{line2}{values2}{line3}{values3}"
-                    f"{line4}{values4}{line5}{values5}{line6}{values6}"
-                    f"{line7}{values7}{line8}{values8}{line9}{values9}"
-                    f"{line10}{values10}{line11}{values11}{line12}{values12}"
-                    f"{line13}{line14}{values14}{line15}{values15}{line16}"
-                    f"{values16}{line17}{values17}{line18}{values18}"
-                    "</pre>"
-                    )
-            
-            block2 = (
-                "<pre style='display: inline-block; font-family: monospace;'>"
-                f"{blank_label}{values1}{blank_label}{values2}{blank_label}"
-                f"{values3}{blank_label}{values4}{blank_label}{values5}{blank_label}{values6}"
-                f"{blank_label}{values7}{blank_label}{values8}{blank_label}{values9}"
-                f"{blank_label}{values10}{blank_label}{values11}{blank_label}{values12}\n"
-                f"{blank_label}{values14}{blank_label}{values15}{blank_label}{values16}"
-                f"{blank_label}{values17}{blank_label}{values18}"
-                "</pre>"
-            )
-            existing = r.complete_info_process
+            existing = r.complete_info_process or ""
             if not existing:
-                existing = block
+                html = "<table style='border-collapse:collapse;font-family:monospace;'>"
+                for idx, (lbl, spec, act) in enumerate(rows1):
+                    bg = "#ffffff" if idx % 2 else "#cccccc"
+                    cell = "{:<25}{:<15}{:<15}".format(lbl, spec or "", act or "")\
+                          .replace(" ", "\u00A0")
+                    html += (
+                        f"<tr style='background:{bg};'>"
+                        f"<td style='border:1px solid #999;padding:4px;'>{cell}</td>"
+                        "</tr>"
+                    )
+                html += "</table>"
+                r.complete_info_process = html
+
             else:
-                existing = existing + block2 
+                base = existing.rsplit("</table>", 1)[0]
+                row_chunks = [chunk for chunk in base.split("</tr>") if chunk.strip()]
+                new_rows = []  
+                for idx, chunk in enumerate(row_chunks):
+                    bg = "#ffffff" if idx % 2 else "#cccccc"
+                    val = rows2[idx][2] or ""
+                    cell = "{:<15}".format(val).replace(" ", "\u00A0")
+   
+                    new_rows.append(
+                        chunk +
+                        f"<td style='border:1px solid #999;padding:4px;background:{bg};'>{cell}</td>"
+                        "</tr>"
+                    )
+     
+                r.complete_info_process = "\n".join(new_rows) + "</table>"
 
             r.time = False
             r.min_seam_position = False
@@ -184,3 +140,91 @@ class process_control(models.Model):
             'no_breadcrumbs': True,
             },
         }
+    
+    def go_to_final(self):
+        for r in self:
+            values = {
+                'complete_info_process':r.complete_info_process,
+                'observation':r.observation,
+                'time':r.time,
+                'min_seam_position':r.min_seam_position,
+                'max_seam_position':r.max_seam_position,
+                'min_external_diameter':r.min_external_diameter,
+                'max_external_diameter':r.max_external_diameter, 
+                'evoh_revelation':r.evoh_revelation,  
+                'color':r.color, 
+                'seam_visual_attributes':r.seam_visual_attributes, 
+                'extrusion_visual_attributes':r.extrusion_visual_attributes,
+                'adherence':r.adherence,
+                'flexibility':r.flexibility,
+                'final_art':r.final_art ,
+                'post_process_test':r.post_process_test ,
+                'fotocell_height_min':r.fotocell_height_min, 
+                'fotocell_height_max':r.fotocell_height_max, 
+                'length_min':r.length_min,
+                'length_max':r.length_max,
+                'responsible':r.responsible,
+            }
+
+            process_record = self.env['store.control'].search([('register_id', '=', r.copy_id.id)], limit=1)
+            if process_record:
+                process_record.write(values)
+
+            final = self.env['final.control'].search([('new_id', '=',  r.copy_id.id)], limit=1)
+            if final:
+                pass
+            else:
+                final = self.env['final.control'].create({'new_id': r.copy_id.id})
+            action = self.env.ref('product_control.action_final').read()[0]
+
+            action.update({
+                'res_id': final.id,           
+                'view_mode': 'form',               
+                'views': [(False, 'form')],        
+                'target': 'current', 
+                'flags': {'initial_mode': 'edit'},
+                'context': dict(self.env.context, no_breadcrumbs=True),           
+            })
+            return action
+        
+    def go_to_register(self):
+        for r in self:
+            values = {
+                'complete_info_process':r.complete_info_process,
+                'observation':r.observation,
+                'time':r.time,
+                'min_seam_position':r.min_seam_position,
+                'max_seam_position':r.max_seam_position,
+                'min_external_diameter':r.min_external_diameter,
+                'max_external_diameter':r.max_external_diameter, 
+                'evoh_revelation':r.evoh_revelation,  
+                'color':r.color, 
+                'seam_visual_attributes':r.seam_visual_attributes, 
+                'extrusion_visual_attributes':r.extrusion_visual_attributes,
+                'adherence':r.adherence,
+                'flexibility':r.flexibility,
+                'final_art':r.final_art ,
+                'post_process_test':r.post_process_test ,
+                'fotocell_height_min':r.fotocell_height_min, 
+                'fotocell_height_max':r.fotocell_height_max, 
+                'length_min':r.length_min,
+                'length_max':r.length_max,
+                'responsible':r.responsible,
+                }
+
+            process_record = self.env['store.control'].search([('register_id', '=', r.copy_id.id)], limit=1)
+            if process_record:
+                process_record.write(values)
+
+            action = self.env.ref('product_control.action_register').read()[0]
+            action.update({
+                'res_id': self.copy_id.id,           
+                'view_mode': 'form',               
+                'views': [(False, 'form')],        
+                'target': 'current', 
+                'flags': {'initial_mode': 'edit'},
+                'context': dict(self.env.context, no_breadcrumbs=True),             
+            })
+            return action
+        
+        

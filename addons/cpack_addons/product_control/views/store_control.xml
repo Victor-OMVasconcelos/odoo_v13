@@ -49,97 +49,118 @@
                                     <field name="coil_band"/>
                                 </group>
                             </group>
+                            <div style="text-align: center; background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                                <h1 style="color: white; margin: 0;">Specifications</h1>
+                            </div>
+                            <group col="6">
+                                <field name="instrument_seam_position" string="Seam position instrument"/>
+                                <field name="fotocell_instrument" string="Fotocell instrument"/>
+                                <field name="length_instrument" string="Length instrument"/>
+                            </group>
+                        </page>
+                        <page string="stored process">
+                            <div style="text-align: center; background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                                <h1 style="color: white; margin: 0;">Table and observations</h1>
+                            </div>
+                            <group col="12">
+                                <group colspan="12">
+                                    <field name="complete_info_process" nolabel="1"/>
+                                </group>
+                                <group colspam="12">
+                                    <field name="observation"/>
+                                </group>
+                            </group>
                         </page>
                         <page string="stored final">
                             <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
-                        <h2 style="color: white;">PPL - Provisional cleaning standard - End of item</h2>
-                    </div>
-                    <div style="margin: 0 auto; background-color: rgb(214, 213, 213); padding: 10px; border-radius: 4px; margin-bottom: 10px; width: 95%; text-align: center;">
-                        <h2>At end of shift</h2>
-                    </div>
-                    <group col="12">
-                        <group col="12" colspan="12" style="text-align: center;">
-                            <group colspan="4" style="text-align: center;">
-                                <h3>Shift 1</h3>
-                                <field name="shift1_1"/>
-                                <field name="shift1_2"/>
-                            </group>
-                            <group colspan="4" style="text-align: center;">
-                                <h3>Shift 2</h3>
-                                <field name="shift2_1"/>
-                                <field name="shift2_2"/>
-                            </group>
-                            <group colspan="4" style="text-align: center;">
-                                <h3>Shift 3</h3>
-                                <field name="shift3_1"/>
-                                <field name="shift3_2"/>
-                            </group>
-                        </group>
-                        <div style="
-                        display: flex;
-                        gap: 0;                  
-                        align-items: center;      
-                        background-color: rgb(214, 213, 213);
-                        padding: 10px;
-                        border-radius: 4px;
-                        margin-bottom: 10px;
-                        width: 95%;             
-                        text-align: center;
-                        margin: 0 auto;
-                        "
-                        >
-                            <div style="flex: 1; text-align: center;"> 
-                                <h3>Setup</h3>
+                                <h2 style="color: white;">PPL - Provisional cleaning standard - End of item</h2>
                             </div>
-                             <div style="flex: 1; text-align: center;">
-                                <h3>Color setup</h3>
+                            <div style="margin: 0 auto; background-color: rgb(214, 213, 213); padding: 10px; border-radius: 4px; margin-bottom: 10px; width: 95%; text-align: center;">
+                                <h2>At end of shift</h2>
                             </div>
-                            <div style="flex: 1; text-align: center;">
-                                <h3>⌀ + weekly</h3>
+                            <group col="12">
+                                <group col="12" colspan="12" style="text-align: center;">
+                                    <group colspan="4" style="text-align: center;">
+                                        <h3>Shift 1</h3>
+                                        <field name="shift1_1"/>
+                                        <field name="shift1_2"/>
+                                     </group>
+                                    <group colspan="4" style="text-align: center;">
+                                        <h3>Shift 2</h3>
+                                        <field name="shift2_1"/>
+                                        <field name="shift2_2"/>
+                                    </group>
+                                    <group colspan="4" style="text-align: center;">
+                                        <h3>Shift 3</h3>
+                                        <field name="shift3_1"/>
+                                        <field name="shift3_2"/>
+                                    </group>
+                                </group>
+                                <div style="
+                                display: flex;
+                                gap: 0;                  
+                                align-items: center;      
+                                background-color: rgb(214, 213, 213);
+                                padding: 10px;
+                                border-radius: 4px;
+                                margin-bottom: 10px;
+                                width: 95%;             
+                                text-align: center;
+                                margin: 0 auto;
+                                "
+                                >
+                                    <div style="flex: 1; text-align: center;"> 
+                                        <h3>Setup</h3>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <h3>Color setup</h3>
+                                    </div>
+                                    <div style="flex: 1; text-align: center;">
+                                        <h3>⌀ + weekly</h3>
+                                    </div>
+                                </div>
+                                <group col="12" colspan="12" style="text-align: center;">
+                                    <group colspan="3" style="margin: 0 30px;">
+                                        <field name="setup"/>
+                                    </group>
+                                    <group colspan="3" style="margin: 0 30px;">
+                                        <field name="color_setup" />
+                                    </group>
+                                    <group colspan="3" style="margin: 0 30px;">
+                                        <field name="diam_and_weekly_setup" />
+                                    </group>
+                                </group>
+                            </group>
+                            <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
+                                <h2 style="color: white;">Line cleaning - End of op</h2>
                             </div>
-                        </div>
-                        <group col="12" colspan="12" style="text-align: center;">
-                            <group colspan="3" style="margin: 0 30px;">
-                                <field name="setup"/>
+                            <group colspan="12" col="12" style="text-align: center;">
+                                <group colspan="1">
+                                    <field name="labels"/>
+                                    <field name="forms"/>
+                                </group>
+                                <group colspan="1">
+                                    <field name="coil_film_op"/>
+                                    <field name="raw_mat_bucket_op"/>
+                                </group>
                             </group>
-                            <group colspan="3" style="margin: 0 30px;">
-                                <field name="color_setup" />
+                            <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
+                                <h2 style="color: white;">Line cleaning - End of Item</h2>
+                            </div>
+                            <group colspan="12" col="12" style="text-align:center">
+                                <group colspan="1">
+                                    <field name="benches"/>
+                                    <field name="empty_boxes"/>
+                                </group>
+                                <group colspan="1">
+                                    <field name="coil_film_item"/>
+                                    <field name="raw_mat_bucket_item"/>
+                                </group>
+                                <group colspan="1">
+                                    <field name="standards"/>
+                                    <field name="pallets"/>
+                                </group>
                             </group>
-                            <group colspan="3" style="margin: 0 30px;">
-                                <field name="diam_and_weekly_setup" />
-                            </group>
-                        </group>
-                    </group>
-                    <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
-                        <h2 style="color: white;">Line cleaning - End of op</h2>
-                    </div>
-                    <group colspan="12" col="12" style="text-align: center;">
-                        <group colspan="1">
-                            <field name="labels"/>
-                            <field name="forms"/>
-                        </group>
-                        <group colspan="1">
-                            <field name="coil_film_op"/>
-                            <field name="raw_mat_bucket_op"/>
-                        </group>
-                    </group>
-                    <div style="background-color: #7c7bad; padding: 10px; border-radius: 4px; margin-bottom: 10px; text-align: center;">
-                        <h2 style="color: white;">Line cleaning - End of Item</h2>
-                    </div>
-                    <group colspan="12" col="12" style="text-align:center">
-                        <group colspan="1">
-                            <field name="benches"/>
-                            <field name="empty_boxes"/>
-                        </group>
-                        <group colspan="1">
-                            <field name="coil_film_item"/>
-                            <field name="raw_mat_bucket_item"/>
-                        </group>
-                        <group colspan="1">
-                            <field name="standards"/>
-                            <field name="pallets"/>
-                        </group>
-                    </group>
                         </page>
                     </notebook>
                 </sheet>

@@ -1,5 +1,5 @@
 {
-    'name': "Product control",
+    'name': "product_control",
     'version': '1.0.0.0',
     'depends': ['base','web','mail'],
     'installable': True,
@@ -17,12 +17,15 @@
     },
 
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/final_control.xml',
         'views/store_control.xml',
         'views/register_control.xml',
         'views/process_control.xml',
         'views/menus_and_actions.xml',
     ],
+
     
     'demo': [
         

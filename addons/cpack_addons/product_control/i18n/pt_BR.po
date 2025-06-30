@@ -1,0 +1,742 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20221005\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-06 12:12+0000\n"
+"PO-Revision-Date: 2025-06-06 12:12+0000\n"
+"Language: pt_BR\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "+ Add"
+msgstr "+ Add"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "01/01/2025"
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Add Coil/Band"
+msgstr "Add Bobina/Banda"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Add Supplies"
+msgstr "Add Insumos"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__adherence
+#: model:ir.model.fields,field_description:product_control.field_store_control__adherence
+msgid "Adherence"
+msgstr "Aderência"
+
+#. module: product_control
+#: model:ir.model,name:product_control.model_process_control
+msgid ""
+"After registery users will be directed to this model, where users will "
+"record all the necessary fields each hour"
+msgstr ""
+"Depois do registro o usúario sera direcionado para esse model, onde usúarios irão"
+"gravar todos os campos necessários a cada hora"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "At end of shift"
+msgstr "Final de turno"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__auxiliar_de_fluxo
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__auxiliar_de_fluxo
+msgid "Auxiliar de fluxo"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__band
+#: model:ir.model.fields,field_description:product_control.field_store_control__band
+msgid "Band"
+msgstr "Banda"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__batch
+#: model:ir.model.fields,field_description:product_control.field_store_control__batch
+msgid "Batch"
+msgstr "Lote"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__benches
+#: model:ir.model.fields,field_description:product_control.field_store_control__benches
+msgid "Benches"
+msgstr "Bancada"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__box
+#: model:ir.model.fields,field_description:product_control.field_store_control__box
+msgid "Box"
+msgstr "Caixa"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__verify
+#: model:ir.model.fields,field_description:product_control.field_store_control__verify
+msgid "Check seam sensor:"
+msgstr "Verificar sensor de emenda:"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__coil
+#: model:ir.model.fields,field_description:product_control.field_store_control__coil
+msgid "Coil"
+msgstr "Bobina"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__coil_film_item
+#: model:ir.model.fields,field_description:product_control.field_final_control__coil_film_op
+#: model:ir.model.fields,field_description:product_control.field_store_control__coil_film_item
+#: model:ir.model.fields,field_description:product_control.field_store_control__coil_film_op
+msgid "Coil film"
+msgstr "Bobina de filme"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__coil_band
+#: model:ir.model.fields,field_description:product_control.field_store_control__coil_band
+msgid "Coil/Band"
+msgstr "Bobina/Banda"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__color
+#: model:ir.model.fields,field_description:product_control.field_store_control__color
+msgid "Color"
+msgstr "Cor"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Color setup"
+msgstr "Setup de cor"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_view
+msgid "Controles de processo"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__copy_id
+#: model:ir.model.fields,field_description:product_control.field_store_control__copy_id
+msgid "Copy"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__create_uid
+#: model:ir.model.fields,field_description:product_control.field_process_control__create_uid
+#: model:ir.model.fields,field_description:product_control.field_register_control__create_uid
+#: model:ir.model.fields,field_description:product_control.field_store_control__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__create_date
+#: model:ir.model.fields,field_description:product_control.field_process_control__create_date
+#: model:ir.model.fields,field_description:product_control.field_register_control__create_date
+#: model:ir.model.fields,field_description:product_control.field_store_control__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__line__d1
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__line__d1
+msgid "D1"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__line__d2
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__line__d2
+msgid "D2"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__date
+#: model:ir.model.fields,field_description:product_control.field_store_control__date
+msgid "Date:"
+msgstr "Data:"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__display_name
+#: model:ir.model.fields,field_description:product_control.field_process_control__display_name
+#: model:ir.model.fields,field_description:product_control.field_register_control__display_name
+#: model:ir.model.fields,field_description:product_control.field_store_control__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__evoh_revelation
+#: model:ir.model.fields,field_description:product_control.field_store_control__evoh_revelation
+msgid "EVOH revelation (1 sample)"
+msgstr "Revelação de EVOG(1 amostra)"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__empty_boxes
+#: model:ir.model.fields,field_description:product_control.field_store_control__empty_boxes
+msgid "Empty boxes"
+msgstr "Caixas vazias"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Ex: 874259..."
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Ex: DL3001759A..."
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "External diameter"
+msgstr "Diãmetro externo"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Extrusion film"
+msgstr "Extrusão com filme"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__process__extrusion_with_film
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__process__extrusion_with_film
+msgid "Extrusion with film"
+msgstr "Extrusão com filme"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__filme
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__filme
+msgid "Filme"
+msgstr "Film"
+
+#. module: product_control
+#: model:ir.actions.act_window,name:product_control.action_final
+#: model:ir.ui.menu,name:product_control.final_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Final"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__final_art
+#: model:ir.model.fields,field_description:product_control.field_store_control__final_art
+msgid "Final art"
+msgstr "Arte final"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__flexibility
+#: model:ir.model.fields,field_description:product_control.field_store_control__flexibility
+msgid "Flexibility"
+msgstr "Flexibilidade"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__forms
+#: model:ir.model.fields,field_description:product_control.field_store_control__forms
+msgid "Form"
+msgstr "Formúlario"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Fotocell height"
+msgstr "Altura da fotocélula"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Fotocell instrument"
+msgstr "Fotocélula instrumento"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__id
+#: model:ir.model.fields,field_description:product_control.field_process_control__id
+#: model:ir.model.fields,field_description:product_control.field_register_control__id
+#: model:ir.model.fields,field_description:product_control.field_store_control__id
+msgid "ID"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model,name:product_control.model_register_control
+msgid ""
+"Inicial registry. Client will be able to insert the date, item and op. "
+"Besides that they can also insert the supplies that will be used in the "
+"process."
+msgstr ""
+"Registro inicial. Cliente poderá inserir a data, item e op."
+"Além disso poderão inserir os insumos que serão usados no"
+"processo."
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__fotocell_instrument
+#: model:ir.model.fields,field_description:product_control.field_register_control__instrument_seam_position
+#: model:ir.model.fields,field_description:product_control.field_register_control__length_instrument
+#: model:ir.model.fields,field_description:product_control.field_store_control__fotocell_instrument
+#: model:ir.model.fields,field_description:product_control.field_store_control__instrument_seam_position
+#: model:ir.model.fields,field_description:product_control.field_store_control__length_instrument
+msgid "Instrument"
+msgstr "Instrumento"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__item_batch
+#: model:ir.model.fields,field_description:product_control.field_store_control__item_batch
+msgid "Item"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__item
+#: model:ir.model.fields,field_description:product_control.field_store_control__item
+msgid "Item:"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__labels
+#: model:ir.model.fields,field_description:product_control.field_store_control__labels
+msgid "Labels"
+msgstr "Etiquetas"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control____last_update
+#: model:ir.model.fields,field_description:product_control.field_process_control____last_update
+#: model:ir.model.fields,field_description:product_control.field_register_control____last_update
+#: model:ir.model.fields,field_description:product_control.field_store_control____last_update
+msgid "Last Modified on"
+msgstr "Modificado por último em"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__write_uid
+#: model:ir.model.fields,field_description:product_control.field_process_control__write_uid
+#: model:ir.model.fields,field_description:product_control.field_register_control__write_uid
+#: model:ir.model.fields,field_description:product_control.field_store_control__write_uid
+msgid "Last Updated by"
+msgstr "Modificado por último por"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__write_date
+#: model:ir.model.fields,field_description:product_control.field_process_control__write_date
+#: model:ir.model.fields,field_description:product_control.field_register_control__write_date
+#: model:ir.model.fields,field_description:product_control.field_store_control__write_date
+msgid "Last Updated on"
+msgstr "Modificado por último em"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Length instrument"
+msgstr "Comprimento instrumento"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Length(mm)"
+msgstr "Comprimento(mm)"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__line
+#: model:ir.model.fields,field_description:product_control.field_store_control__line
+msgid "Line"
+msgstr "Linha"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__line_d1
+#: model:ir.model.fields,field_description:product_control.field_store_control__line_d1
+msgid "Line D1"
+msgstr "Linha D1"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__line_d2
+#: model:ir.model.fields,field_description:product_control.field_store_control__line_d2
+msgid "Line D2"
+msgstr "Linha D2"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Line cleaning - End of Item"
+msgstr "Limpeza de linha - Final de item"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Line cleaning - End of op"
+msgstr "Limpeza de linha - Final de OP"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-010 Adherence"
+msgstr "ME-QUA-CQ-010 Aderência"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-025 Color"
+msgstr "ME-QUA-CQ-025 Cor"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-025 Final art"
+msgstr "ME-QUA-CQ-025 Arte final"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-026 EVOH revelation"
+msgstr "ME-QUA-CQ-026 Revelação EVOH"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-028 Visual attributes - extrusion with film"
+msgstr "ME-QUA-CQ-028 Atributos visuais- Extrusão com filme"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-042 Fotocell height"
+msgstr "ME-QUA-CQ-042 Altura da fotocélula"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-045 External diameter (mm)"
+msgstr "ME-QUA-CQ-045 Diãmetro externo (mm)"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-045 Length(mm)"
+msgstr "ME-QUA-CQ-045 Comprimento(mm)"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-049 Seam position"
+msgstr "ME-QUA-CQ-049 Emenda posição"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-058 Visual attributes - Seam"
+msgstr "ME-QUA-CQ-058 Atributos visuais - Emenda"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "ME-QUA-CQ-166 Flexibility"
+msgstr "ME-QUA-CQ-166 Flexibilidade"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__masterbatch
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__masterbatch
+msgid "Masterbatch"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__fotocell_height_max
+#: model:ir.model.fields,field_description:product_control.field_process_control__length_max
+#: model:ir.model.fields,field_description:product_control.field_process_control__max_external_diameter
+#: model:ir.model.fields,field_description:product_control.field_process_control__max_seam_position
+#: model:ir.model.fields,field_description:product_control.field_register_control__fotocell_height_specified_max
+#: model:ir.model.fields,field_description:product_control.field_register_control__length_specified_max
+#: model:ir.model.fields,field_description:product_control.field_register_control__max_specified_external_diameter
+#: model:ir.model.fields,field_description:product_control.field_register_control__max_specified_seam_position
+#: model:ir.model.fields,field_description:product_control.field_store_control__fotocell_height_max
+#: model:ir.model.fields,field_description:product_control.field_store_control__length_max
+#: model:ir.model.fields,field_description:product_control.field_store_control__max_external_diameter
+#: model:ir.model.fields,field_description:product_control.field_store_control__max_seam_position
+msgid "Max"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__fotocell_height_min
+#: model:ir.model.fields,field_description:product_control.field_process_control__length_min
+#: model:ir.model.fields,field_description:product_control.field_process_control__min_external_diameter
+#: model:ir.model.fields,field_description:product_control.field_process_control__min_seam_position
+#: model:ir.model.fields,field_description:product_control.field_register_control__fotocell_height_specified_min
+#: model:ir.model.fields,field_description:product_control.field_register_control__length_specified_min
+#: model:ir.model.fields,field_description:product_control.field_register_control__min_specified_external_diameter
+#: model:ir.model.fields,field_description:product_control.field_register_control__min_specified_seam_position
+#: model:ir.model.fields,field_description:product_control.field_store_control__fotocell_height_min
+#: model:ir.model.fields,field_description:product_control.field_store_control__length_min
+#: model:ir.model.fields,field_description:product_control.field_store_control__min_external_diameter
+#: model:ir.model.fields,field_description:product_control.field_store_control__min_seam_position
+msgid "Min"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__new_id
+msgid "New"
+msgstr "Novo"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__observation
+#: model:ir.model.fields,field_description:product_control.field_store_control__observation
+msgid "Observation"
+msgstr "Observação"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "Observations"
+msgstr "Observações"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__op
+#: model:ir.model.fields,field_description:product_control.field_store_control__op
+msgid "Op number:"
+msgstr "Número do op:"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__others
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__others
+msgid "Others"
+msgstr "Outros"
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__pead
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__pead
+msgid "PEAD"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__pebd
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__pebd
+msgid "PEBD"
+msgstr ""
+
+#. module: product_control
+#: model:ir.model.fields.selection,name:product_control.selection__register_control__supply__pebdl
+#: model:ir.model.fields.selection,name:product_control.selection__store_control__supply__pebdl
+msgid "PEBDL"
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "PPL - Provisional cleaning standard - End of item"
+msgstr "PPL - Padrão provisório de limpeza - Final de item"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__pallets
+#: model:ir.model.fields,field_description:product_control.field_store_control__pallets
+msgid "Pallets"
+msgstr "Paletes"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__post_process_test
+#: model:ir.model.fields,field_description:product_control.field_store_control__post_process_test
+msgid "Post process test"
+msgstr "Teste pós processo"
+
+#. module: product_control
+#: model:ir.actions.act_window,name:product_control.action_process
+#: model:ir.ui.menu,name:product_control.process_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Process"
+msgstr "Processo"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "Process control"
+msgstr "Controle de processo"
+
+#. module: product_control
+#: model:ir.ui.menu,name:product_control.control_root_menu
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "Product control"
+msgstr "Controle de produto"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__raw_mat_bucket_item
+#: model:ir.model.fields,field_description:product_control.field_final_control__raw_mat_bucket_op
+#: model:ir.model.fields,field_description:product_control.field_store_control__raw_mat_bucket_item
+#: model:ir.model.fields,field_description:product_control.field_store_control__raw_mat_bucket_op
+msgid "Raw material buckets"
+msgstr "Baldes de matéria prima"
+
+#. module: product_control
+#: model:ir.actions.act_window,name:product_control.action_register
+#: model:ir.model.fields,field_description:product_control.field_store_control__register_id
+#: model:ir.ui.menu,name:product_control.control_register_menu
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "Register"
+msgstr "Registro"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Register form"
+msgstr "Formulários de registro"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__responsible
+#: model:ir.model.fields,field_description:product_control.field_store_control__responsible
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "Responsible"
+msgstr "Responsável"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+msgid "Seam position"
+msgstr "Posição de emenda"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Seam position instrument"
+msgstr "Posição de emenda instrumento"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Setup"
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Setup verification"
+msgstr "Verificação de setup"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Shift 1"
+msgstr "Turno 1"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Shift 2"
+msgstr "Turno 2"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Shift 3"
+msgstr "Turno 3"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Specifications"
+msgstr "Especificações"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_final_control__standards
+#: model:ir.model.fields,field_description:product_control.field_store_control__standards
+msgid "Standards"
+msgstr "Padrões"
+
+#. module: product_control
+#: model:ir.ui.menu,name:product_control.control_storage_menu
+msgid "Storage"
+msgstr "Armazenamento"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Store"
+msgstr "Armazenar"
+
+#. module: product_control
+#: model:ir.actions.act_window,name:product_control.action_storage
+msgid "Stored"
+msgstr "Armazenado"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_tree
+msgid "Stored forms"
+msgstr "Formúlarios armazenados"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__complete_info
+#: model:ir.model.fields,field_description:product_control.field_store_control__complete_info
+msgid "Supplies"
+msgstr "Insumos"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.register_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Supplies used"
+msgstr "Insumos usados"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__supply
+#: model:ir.model.fields,field_description:product_control.field_store_control__supply
+msgid "Supply"
+msgstr "insumo"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__complete_info_process
+#: model:ir.model.fields,field_description:product_control.field_store_control__complete_info_process
+msgid "Tabela processos"
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "Table and observations"
+msgstr "Tabela e observações"
+
+#. module: product_control
+#: model:ir.model,name:product_control.model_final_control
+msgid ""
+"The final part of the control process. It involves checking boxes to make "
+"sure you have finished all the necessary activities"
+msgstr ""
+"A última parte do controle de processo. Involve marcando caixas para cofnirmar "
+"Que voce finalizou todas as atividades necessárias
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__time
+#: model:ir.model.fields,field_description:product_control.field_store_control__time
+#: model_terms:ir.ui.view,arch_db:product_control.process_control_form
+msgid "Time"
+msgstr "Tempo"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__extrusion_visual_attributes
+#: model:ir.model.fields,field_description:product_control.field_store_control__extrusion_visual_attributes
+msgid "Visual attributes - Extrusion with film"
+msgstr "Atributos visuais - Extrusão com filme"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_process_control__seam_visual_attributes
+#: model:ir.model.fields,field_description:product_control.field_store_control__seam_visual_attributes
+msgid "Visual attributes - Seam"
+msgstr "Atributos visuais - Emenda"
+
+#. module: product_control
+#: model:ir.model.fields,field_description:product_control.field_register_control__process
+#: model:ir.model.fields,field_description:product_control.field_store_control__process
+msgid "process"
+msgstr "processos"
+
+#. module: product_control
+#: model:ir.model,name:product_control.model_store_control
+msgid "store.control"
+msgstr ""
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "stored final"
+msgstr "Final armazenado"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "stored process"
+msgstr "Processo armazenado"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "stored registry"
+msgstr "Registro armazenado"
+
+#. module: product_control
+#: model_terms:ir.ui.view,arch_db:product_control.final_control_form
+#: model_terms:ir.ui.view,arch_db:product_control.store_control_form
+msgid "⌀ + weekly"
+msgstr "⌀ + semanal"
+
+

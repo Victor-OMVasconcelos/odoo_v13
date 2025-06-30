@@ -94,13 +94,12 @@
                         <group colspan="1">
                             <field name="standards" widget="boolean_toggle"/>
                             <field name="pallets" widget="boolean_toggle"/>
+                        </group>         
+                        <button name="go_to_register" type="object" string="Register" class="oe_highlight" style="margin-right:20px;"/>
+                        <button name="go_to_process" type="object" string="Process" class="oe_highlight"/>
+                        <group colspan="12">
+                            <button name="end_form" type="object" string="Finalizar" class="oe_highlight"/>
                         </group>
-                        <footer>
-                            <group>
-                                <button name="go_to_process" type="object" string="Process" class="oe_highlight"/>           
-                                <button name="go_to_register" type="object" string="Register" class="oe_highlight"/>
-                            </group>
-                        </footer>
                     </group>
                 </sheet>
             </form>

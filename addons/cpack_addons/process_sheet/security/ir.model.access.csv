@@ -1,0 +1,23 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+manager_manage_arquives,manager manage arquives,model_manage_arquives,process_sheet.group_manager,1,1,1,1
+admin_manage_arquives,admin manage arquives,model_manage_arquives,process_sheet.group_admin,1,1,1,1
+
+operator_manage_solicitations, operator manage solicitations,model_manage_solicitations,process_sheet.group_operator,1,1,1,0
+manager_manage_solicitations,manager manage solicitations,model_manage_solicitations,process_sheet.group_manager,1,1,1,1
+admin_manage_solicitations,admin manage solicitations,model_manage_solicitations,process_sheet.group_admin,1,1,1,1
+
+operator_solicit_changes,operator solicit changes,model_solicit_changes,process_sheet.group_operator,1,1,1,0
+manager_solicit_changes,manager solicit changes,model_solicit_changes,process_sheet.group_manager,1,1,0,0
+admin_solicit_changes,admin solicit changes,model_solicit_changes,process_sheet.group_admin,1,1,1,1
+
+operator_visualize_arquive,operator visualize arquive,model_visualize_arquives,process_sheet.group_operator,1,1,0,0
+manager_visualize_arquive,manager visualize arquive,model_visualize_arquives,process_sheet.group_manager,1,1,1,0
+admin_visualize_arquive,admin visualize arquive,model_visualize_arquives,process_sheet.group_admin,1,1,1,1
+
+manager_wizard_dismissed,manager wizard dismissed,model_wizard_dismissed,process_sheet.group_manager,1,1,1,0
+admin_wizard_dismissed,admin wizard dismissed,model_wizard_dismissed,process_sheet.group_admin,1,1,1,1
+
+operator_wizard_solicit,operator wizard solicit,model_wizard_solicit,process_sheet.group_operator,1,1,1,0
+admin_wizard_solicit,admin wizard solicit,model_wizard_solicit,process_sheet.group_admin,1,1,1,1
+
